@@ -13,6 +13,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.authorizeRequests(authorizeRequests ->
                 authorizeRequests.antMatchers(HttpMethod.GET, "/access/read/**").hasAuthority("SCOPE_read")
                                  .antMatchers(HttpMethod.POST, "/access/write/**").hasAuthority("SCOPE_write")
+                                 .antMatchers(HttpMethod.GET, "/access/free/**").permitAll()
                                  .anyRequest().authenticated())
                 .oauth2ResourceServer().jwt();
     }

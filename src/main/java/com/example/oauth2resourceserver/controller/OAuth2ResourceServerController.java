@@ -24,4 +24,9 @@ public class OAuth2ResourceServerController {
     public String writeAccess(@RequestBody String text) {
         return String.format("Write access. Text: %s", text);
     }
+
+    @GetMapping("/access/free")
+    public String freeAccess() {
+        return "Free access. No authentication needed";
+    }
 }
